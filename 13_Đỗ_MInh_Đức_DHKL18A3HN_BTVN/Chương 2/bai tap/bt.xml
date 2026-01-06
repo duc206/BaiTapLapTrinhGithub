@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company>
+    <name>Cong Ty A</name>
+    <director>
+        <name>Nguyen Van A</name>
+        <phone>0123456789</phone>
+    </director>
+    <address>11 Vong Xuyen, Ha Noi</address>
+    <tax_code>190894734</tax_code>
+</company>
+
+
+
+<?xml version = "1.0" encoding = "UTF-8">
+<students>
+    <student id="SV001">
+        <name>Tran Thi B</name>
+        <birth_year>2001</birth_year>
+        <class>CTK42</class>
+        <gender>Female</gender>
+    </student>
+    <student id="SV002">
+        <name>Le Van C</name>
+        <birth_year>2000</birth_year>
+        <class>CTK42</class>
+        <gender>Male</gender>
+    </student>
+</students>
+
+
+
+from xml.dom import minidom
+doc = minidom.parse("sample.xml")
+print(doc)
+
+from xml.dom import minidom
+doc = minidom.parse("sample.xml")
+staff_list = doc.getElementsByTagName("staff")
+for staff in staff_list:
+    name = staff.getElementsByTagName("name")[0].firstChild.data
+    salary = staff.getElementsByTagName("salary")[0].firstChild.data
+    print(f"Name: {name}, Salary: {salary}")
+
+
+import requests
+import xml.etree.ElementTree as ET
+import csv
+
+
+url = "http://www.hindustantimes.com/rss/topnews/rssfeed.xml"
+response = requests.get(url)
+with open("rss_feed.xml", "wb") as f:
+    f.write(response.content)
+tree = ET.parse("rss_feed.xml")
+root = tree.getroot()
+news_list = []
+for item in root.findall(".//item"):
+    news = {
+        "title": item.findtext("title"),
+        "link": item.findtext("link"),
+        "pubDate": item.findtext("pubDate"),
+        "description": item.findtext("description")
+    }
+    news_list.append(news)
+with open("news.csv", "w", newline="", encoding="utf-8") as csvfile:
+    fieldnames = ["title", "link", "pubDate", "description"]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for news in news_list:
+        writer.writerow(news)

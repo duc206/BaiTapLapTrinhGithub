@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lists>
+    <company director = "Nguyen Van A" email = "van.A@gmail.com">Dat Viet</company>
+    <company director = "Tran Van C" email = "van.C@gmail.com">Dat Viet</company>
+    <company director = "Le Thi B" email = "le.B@gmail.com">Dat Viet</company>
+</lists>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Company>
+    <Employee>
+        <Firstname>Nguyen</Firstname>
+        <Lastname>Van A</Lastname>
+        <ContactNo>0901234567</ContactNo>
+        <Email>van.a@uneti.edu.vn</Email>
+        <Address>
+           <City>Hanoi</City>
+           <District>Hai Ba Trung</District>       
+           <Ward>Vinh Tuy</Ward>
+           <Street>Minh Khai</Street>
+           <HouseNumber>456</HouseNumber>
+        </Address>
+    </Employee>
+</Company>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dssv>
+    <sv>
+       <Fristname>Dam</Fristname>
+       <Lastname>Manh Tuyen</Lastname>
+       <Date>2006</Date>
+       <Gioitinh>Nam</Gioitinh>
+    </sv>
+</dssv>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book id = "1">
+        <title>The Great Gatsby</title>
+        <author>F. Scoot Fitzgerald</author>
+        <genre>ficton</genre>
+        <price currency = "USD">10.99</price>
+    </book>
+    <book id = "2">
+        <title>To Kill a Mockingbird</title>
+        <author>Harper Lee</author>
+        <genre>ficton</genre>
+        <price currency = "USD">12.99</price>
+    </book>
+</library>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ShopOder>
+    <Oder>
+        <cus:Customer
+            xmlns:cus="https://DatViet.com.vn/customer">
+            <cus:Title>Nguyen Van A</cus:Title>
+            <Address>Dong Van - Lang Son</Address>
+        </cus:Customer>
+    </Oder>
+</ShopOder>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a comment node-->
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<!DOCTYPE note SYSTEM "library.dtd">
+<library>   
+    <book category = "web">
+        <title lang = "vn">Lap trinh R</title>
+        <author>Nguyen Tuan</author>
+        <year>2020</year>
+        <price currency = "VND">200000</price>
+    </book>
+    <book category = "fiction">
+        <title lang = "en">Learning XML</title>
+        <author>Erik T. Ray</author>
+        <year>2003</year>
+        <price currency = "USD">39.95</price>
+    </book>
+</library>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<employee>
+    <fname>A</fname>
+    <lname>Nguyen Van</lname>
+    <City>Hanoi</City>
+    <experince name = " SQL"/>
+    <experince name = "Pyhton"/>
+    <experince name = "Testing"/>
+    <experince name = "Business"/>
+</employee>
+
+import xml.dom.minidom 
+def main():
+   doc = xml.dom.minidom.prase("employee.xml")
+    print(doc.nodeName)
+    print(doc.firstChild.tagName)
+if __name__ == "__main__":
+    main() 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a comment node-->
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<!DOCTYPE note SYSTEM "library.dtd">
+<employee>
+    <fname>A</fname>
+    <lname>Nguyen Van</lname>
+    <City>Hanoi</City>
+    <experince name = " SQL"/>
+    <experince name = "Pyhton"/>
+    <experince name = "Testing"/>
+    <experince name = "Business"/>
+</employee>
+

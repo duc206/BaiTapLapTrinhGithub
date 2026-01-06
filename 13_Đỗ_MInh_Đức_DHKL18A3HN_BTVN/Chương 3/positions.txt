@@ -1,0 +1,1 @@
+'GK'(goalkeeper),"M'(midfiled),'A'(attack),'D'(defense)
